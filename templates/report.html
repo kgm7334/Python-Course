@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>사람인-잡코리아-IT직업찾기</title>
+    <style>
+      section {
+        display: grid;
+        gap: 20px;
+        grid-template-columns: repeat(4, 1fr);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>직업 찾기 결과</h1>
+    <h3>{{searchingBy}}에 해당하는{{resultNumber}}개의 직업을 찾았습니다</h3>
+    <a href="/export?word={{searchingBy}}">문서로다운받기></a>
+    <section>
+      <h4>Title</h4>
+      <h4>Company</h4>
+      <h4>Location</h4>
+      <h4>Link</h4>
+      {%for job in jobs%}
+      <span>{{job.JobTitle}}</span>
+      <span>{{job.Company}}</span>
+      <span>{{job.Location}}</span>
+      <a href="{{job.ApplyURL}}" target="_blank">apply</a>
+      {% endfor %}
+    </section>
+  </body>
+</html>
